@@ -1,0 +1,35 @@
+import { useState } from "react";
+import Header from "./components/Header.jsx";
+import Instruction from "./components/Instruction.jsx";
+import Footer from "./components/Footer.jsx";
+import { Main } from "./components/Main.jsx";
+import Section from "./components/Section.jsx";
+
+function App() {
+  const [showInstructions, setShowInstructions] = useState(false);
+
+  const toggleInstructions = () => {
+    setShowInstructions((prev)=>!prev);
+  };
+
+  return (
+    <div className="app">
+      <Header showInstructions={showInstructions} toggleInstructions={toggleInstructions}/>
+      <Instruction showInstructions={showInstructions}/>
+      <Main >
+        <Section title="Buttons Variants">
+          <button className="button primary">Primary Button</button>
+          <button className="button secondary">Secondary Button</button>
+          <button className="button danger">Danger Button</button>
+          <button className="button gradient">Gradient Button</button>
+          <button className="button outline">Outline Button</button>
+        </Section>
+        <Section title="Cards Examples">
+        </Section>
+      </Main>
+      <Footer />
+    </div>
+  )
+}
+
+export default App
